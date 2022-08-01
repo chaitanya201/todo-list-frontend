@@ -44,7 +44,7 @@ export default function Home() {
 
     try {
       const response = await axios.post(
-        "https://todo-list-examrat.herokuapp.com/task/add",
+        "http://localhost:5000/task/add",
         {
           task: task,
           priority: priority.value,
@@ -89,7 +89,7 @@ export default function Home() {
 
     try {
       const response = await axios.post(
-        "https://todo-list-examrat.herokuapp.com/task/update",
+        "http://localhost:5000/task/update",
         {
           taskId: selectedTaskId,
           userId: cookie.user._id,
@@ -118,7 +118,7 @@ export default function Home() {
 
   const getTodo = async () => {
     try {
-      var data = await axios.get("https://todo-list-examrat.herokuapp.com/task/get", {
+      var data = await axios.get("http://localhost:5000/task/get", {
         headers: {
           authorization: "Bearer " + cookie.token,
           "Content-Type": "application/json",
@@ -178,7 +178,7 @@ export default function Home() {
             onClick={async () => {
               try {
                 const res = await axios.get(
-                  "https://todo-list-examrat.herokuapp.com/task/mark-complete?taskId=" +
+                  "http://localhost:5000/task/mark-complete?taskId=" +
                     row._id +
                     "&userId=" +
                     cookie.user._id,
@@ -217,7 +217,7 @@ export default function Home() {
               onClick={async () => {
                 try {
                   const res = await axios.delete(
-                    "https://todo-list-examrat.herokuapp.com/task/delete?taskId=" +
+                    "http://localhost:5000/task/delete?taskId=" +
                       params.row._id +
                       "&userId=" +
                       cookie.user._id,
@@ -265,7 +265,7 @@ export default function Home() {
               onClick={async () => {
                 try {
                   const res = await axios.get(
-                    "https://todo-list-examrat.herokuapp.com/task/logout",
+                    "http://localhost:5000/task/logout",
                     {
                       headers: {
                         authorization: "Bearer " + cookie.token,

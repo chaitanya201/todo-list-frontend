@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useCookies } from "react-cookie";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import ClosingAlert from "../components/Alert";
 export default function Login() {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ export default function Login() {
     };
     try {
       const response = await axios.post(
-        "https://todo-list-examrat.herokuapp.com/auth/login",
+        "http://localhost:5000/auth/login",
         user,
         {
           withCredentials: true,

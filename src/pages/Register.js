@@ -12,7 +12,6 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [loadingState, setLoadingState] = useState(false);
 
   // collecting user info
   const changeName = (event) => {
@@ -33,7 +32,6 @@ export default function Register() {
   // defining what would happen after form submission
   const onFormSubmit = async (event) => {
     event.preventDefault();
-    setLoadingState(true);
     setAlertMsg("Checking credentials")
     setAlertMsgColor('yellow')
     if (!name.trim()) {
@@ -53,7 +51,7 @@ export default function Register() {
 
     try {
       const response = await axios.post(
-        "https://todo-list-examrat.herokuapp.com/auth/register",
+        "http://localhost:5000/auth/register",
         user,
         {
           withCredentials: true,
@@ -80,7 +78,6 @@ export default function Register() {
       setAlertMsgColor('red')
     }
     
-    setLoadingState(false);
   };
   return (
     <div>
